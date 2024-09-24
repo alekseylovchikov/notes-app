@@ -166,7 +166,7 @@ export default defineComponent({
 
     watch(
       () => cloneDeep(note),
-      (newValue, oldValue) => {
+      (_, oldValue) => {
         if (!isUndoRedoAction) {
           undoStack.value.push(oldValue);
         }

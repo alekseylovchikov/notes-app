@@ -1,10 +1,6 @@
 <template>
   <label class="custom-checkbox">
-    <input
-      type="checkbox"
-      :checked="modelValue"
-      @change="$emit('update:modelValue', $event.target?.checked)"
-    />
+    <input type="checkbox" :checked="modelValue" @change="onChange" />
     <span class="checkmark"></span>
   </label>
 </template>
@@ -18,6 +14,13 @@ export default defineComponent({
     modelValue: {
       type: Boolean,
       required: true,
+    },
+  },
+  emits: ['update:modelValue'],
+  methods: {
+    onChange(event: Event) {
+      const target = event.target as HTMLInputElement;
+      this.$emit('update:modelValue', target.checked);
     },
   },
 });
