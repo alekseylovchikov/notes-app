@@ -1,30 +1,47 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div id="app">
+    <nav>
+      <ul>
+        <li>
+          <router-link to="/">Главная</router-link>
+        </li>
+        <li><router-link to="/about">О приложении</router-link></li>
+      </ul>
+    </nav>
+    <router-view />
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
+<script lang="ts">
+export default {
+  name: 'App',
+};
+</script>
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+#app {
+  max-width: 1024px;
+  margin: 0 auto;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+nav {
+  padding: 16px 0;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+ul {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 </style>
