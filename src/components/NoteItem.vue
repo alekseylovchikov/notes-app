@@ -5,7 +5,7 @@
     <h3>Список пунктов:</h3>
     <ul class="list">
       <li
-        v-for="(todo, index) in truncatedTodos"
+        v-for="todo in truncatedTodos"
         :key="todo.id"
         :class="{ completed: todo.completed }"
       >
