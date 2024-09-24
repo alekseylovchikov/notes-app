@@ -159,7 +159,6 @@ export default defineComponent({
       note.todos.splice(index, 1);
     };
 
-    // Undo/Redo функциональность
     let isUndoRedoAction = false;
     const undoStack = ref<Note[]>([]);
     const redoStack = ref<Note[]>([]);
