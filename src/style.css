@@ -2,6 +2,7 @@
   --success: #4caf50;
   --error: #f44336;
   --accent-color: #2196f3;
+  --warning-color: #ff9800;
   --bg-color: #f5f5f5;
   --primary-text: #212121;
   --light-text: #e0e0e0;
@@ -20,6 +21,13 @@ body {
   color: var(--dark-text);
 }
 
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 .btn {
   cursor: pointer;
   padding: 8px 12px;
@@ -27,6 +35,7 @@ body {
   border: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: box-shadow 0.3s ease-in-out;
+  font-weight: bold;
 }
 
 .btn:hover {
@@ -53,9 +62,21 @@ body {
   color: var(--dark-text);
 }
 
+.btn-warning {
+  background-color: var(--warning-color);
+  color: var(--dark-text);
+}
+
 .form-control {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 3px;
   width: 100%;
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin: 16px 0;
 }

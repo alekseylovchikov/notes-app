@@ -12,7 +12,7 @@
         <h3>Todo пункты:</h3>
         <ul>
           <li v-for="(todo, index) in note.todos" :key="todo.id">
-            <input type="checkbox" v-model="todo.completed" />
+            <CustomCheckbox v-model="todo.completed" />
             <input
               class="form-control"
               type="text"
@@ -46,7 +46,7 @@
           Отменить изменение
         </button>
         <button
-          class="btn btn-warning"
+          class="btn btn-default"
           type="button"
           @click="redoChange"
           :disabled="!canRedo"
@@ -91,6 +91,7 @@ import { defineComponent, reactive, ref, computed, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { notesStore } from '../store/notes';
 import ModalDialog from '../components/ModalDialog.vue';
+import CustomCheckbox from '../components/CustomCheckbox.vue';
 import { Note } from '../models/Note';
 import cloneDeep from 'lodash.clonedeep';
 
@@ -98,6 +99,7 @@ export default defineComponent({
   name: 'NoteEditView',
   components: {
     ModalDialog,
+    CustomCheckbox,
   },
   setup() {
     const route = useRoute();

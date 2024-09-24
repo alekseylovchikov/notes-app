@@ -4,7 +4,7 @@
       <h3>{{ title }}</h3>
       <p>{{ message }}</p>
       <div class="modal-actions">
-        <button class="btn btn-success" @click="onConfirm">
+        <button class="btn btn-danger" @click="onConfirm">
           {{ confirmText }}
         </button>
         <button class="btn btn-default" @click="onCancel">

@@ -1,7 +1,8 @@
 <template>
   <div class="note-item">
-    <h2>Название заметки: {{ note.title }}</h2>
-    <h4>Список пунктов:</h4>
+    <h1>Название заметки: {{ note.title }}</h1>
+    <div class="separator" />
+    <h3>Список пунктов:</h3>
     <ul class="list">
       <li
         v-for="(todo, index) in truncatedTodos"
@@ -12,7 +13,7 @@
       </li>
     </ul>
     <div class="actions">
-      <button class="btn btn-success" @click="editNote">Изменить</button>
+      <button class="btn btn-primary" @click="editNote">Изменить</button>
       <button class="btn btn-danger" @click="confirmDelete">Удалить</button>
     </div>
 
@@ -83,13 +84,19 @@ export default defineComponent({
 
 <style scoped>
 .note-item {
-  border: 1px solid #ccc;
+  border: 1px solid #eee;
+  border-radius: 8px;
   padding: 16px;
-  margin-bottom: 16px;
+  margin: 8px 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
 .actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
   margin-top: 8px;
+  flex-wrap: wrap;
 }
 
 .actions button {
@@ -103,8 +110,8 @@ export default defineComponent({
 
 .list {
   display: flex;
-  list-style: none;
   gap: 2px;
   flex-direction: column;
+  list-style: none;
 }
 </style>

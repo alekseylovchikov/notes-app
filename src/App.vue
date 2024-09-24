@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <nav>
+  <header>
+    <nav class="container">
       <ul>
         <li>
           <router-link to="/">Главная</router-link>
@@ -8,6 +8,8 @@
         <li><router-link to="/about">О приложении</router-link></li>
       </ul>
     </nav>
+  </header>
+  <div class="container main-content">
     <router-view />
   </div>
 </template>
@@ -19,20 +21,21 @@ export default {
 </script>
 
 <style scoped>
-#app {
-  max-width: 1024px;
-  margin: 0 auto;
+header {
+  background-color: #f8f8f8;
 }
 
-nav {
-  padding: 16px 0;
+.main-content {
+  padding: 16px;
 }
 
 ul {
+  padding: 16px 0;
   display: flex;
   gap: 8px;
   align-items: center;
   list-style: none;
+  flex-wrap: wrap;
 }
 
 a {

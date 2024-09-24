@@ -1,9 +1,11 @@
 <template>
   <div>
-    <h1>Список заметок</h1>
-    <button class="btn btn-success" @click="createNote">
-      Создать новую заметку
-    </button>
+    <header>
+      <h1>Список заметок</h1>
+      <button class="btn btn-success" @click="createNote">
+        Создать новую заметку
+      </button>
+    </header>
     <div v-if="notesStore.notes.length">
       <NoteItem v-for="note in notesStore.notes" :key="note.id" :note="note" />
     </div>
@@ -38,3 +40,14 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+header {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+</style>
