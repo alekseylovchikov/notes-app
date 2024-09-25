@@ -11,22 +11,13 @@
       <div>
         <h3>Todo пункты:</h3>
         <ul>
-          <li v-for="(todo, index) in note.todos" :key="todo.id">
-            <CustomCheckbox v-model="todo.completed" />
-            <input
-              class="form-control"
-              type="text"
-              v-model="todo.text"
-              placeholder="Текст пункта"
-            />
-            <button
-              class="btn btn-danger"
-              type="button"
-              @click="removeTodo(index)"
-            >
-              Удалить
-            </button>
-          </li>
+          <TodoItem
+            v-for="(todo, index) in note.todos"
+            :todo="todo"
+            :index="index"
+            :key="todo.id"
+            @removeTodo="removeTodo"
+          />
         </ul>
         <button class="btn btn-primary" type="button" @click="addTodo">
           Добавить пункт
@@ -94,10 +85,12 @@ import ModalDialog from '../components/ModalDialog.vue';
 import CustomCheckbox from '../components/CustomCheckbox.vue';
 import { Note } from '../models/Note';
 import cloneDeep from 'lodash.clonedeep';
+import TodoItem from '../components/TodoItem.vue';
 
 export default defineComponent({
   name: 'NoteEditView',
   components: {
+    TodoItem,
     ModalDialog,
     CustomCheckbox,
   },
@@ -182,7 +175,9 @@ export default defineComponent({
         const previousState = undoStack.value.pop()!;
         redoStack.value.push(cloneDeep(note));
         Object.assign(note, previousState);
-        isUndoRedoAction = false;
+        setTimeout(() => {
+          isUndoRedoAction = false;
+        }, 0);
       }
     };
 
@@ -192,7 +187,9 @@ export default defineComponent({
         const nextState = redoStack.value.pop()!;
         undoStack.value.push(cloneDeep(note));
         Object.assign(note, nextState);
-        isUndoRedoAction = false;
+        setTimeout(() => {
+          isUndoRedoAction = false;
+        }, 0);
       }
     };
 
