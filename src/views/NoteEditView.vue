@@ -172,7 +172,7 @@ export default defineComponent({
     const undoChange = () => {
       if (canUndo.value) {
         isUndoRedoAction = true;
-        const previousState = undoStack.value.pop()!;
+        const previousState = undoStack.value.pop();
         redoStack.value.push(cloneDeep(note));
         Object.assign(note, previousState);
         setTimeout(() => {
@@ -184,7 +184,7 @@ export default defineComponent({
     const redoChange = () => {
       if (canRedo.value) {
         isUndoRedoAction = true;
-        const nextState = redoStack.value.pop()!;
+        const nextState = redoStack.value.pop();
         undoStack.value.push(cloneDeep(note));
         Object.assign(note, nextState);
         setTimeout(() => {
